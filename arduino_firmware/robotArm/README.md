@@ -1,2 +1,1 @@
-![Upload Guide]
-(https://images.squarespace-cdn.com/content/v1/5d941712fce68e37b0fc69fe/1598282630237-7YCPSAZZZ8WENQNIATKO/ke17ZwdGBToddI8pDm48kFlt7bF35lztZoWd3r1VWj97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UTLmnzQ3bdvVBBjdn8YK27UQ9opvCYpAq8S3lkQgiq5lDVfRxgAIsQ7eQiOnQS3C_Q/Upload+Guide+_dg.jpg?format=750w)
+
