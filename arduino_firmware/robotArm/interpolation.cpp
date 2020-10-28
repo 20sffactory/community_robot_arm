@@ -1,4 +1,5 @@
 #include "interpolation.h"
+#include "config.h"
 
 void Interpolation::setCurrentPos(float px, float py, float pz, float pe) {
   Point p;
@@ -32,7 +33,6 @@ void Interpolation::setInterpolation(float p1x, float p1y, float p1z, float p1e,
   setInterpolation(p1, p2, v);
 }
 
-
 void Interpolation::setInterpolation(Point p1, float v) {
   Point p0;
   p0.xmm = xStartmm + xDelta;
@@ -50,10 +50,13 @@ void Interpolation::setInterpolation(Point p0, Point p1, float av) {
   float c = (p1.zmm - p0.zmm);
   float e = abs(p1.emm - p0.emm);
   float dist = sqrt(a*a + b*b + c*c);
+
   if (dist < e) {
     dist = e; 
   }
-  
+//  if (dist = 0) {
+//    dist = e;
+//  } 
   if (v < 5) { //includes 0 = default value
     v = sqrt(dist) * 10; //set a good value for v
   }
@@ -89,35 +92,53 @@ void Interpolation::setCurrentPos(Point p) {
   eDelta = 0;
 }
 
-
 void Interpolation::updateActualPosition() {
   if (state != 0) {
     return;
-  }
-    
+  }    
   long microsek = micros();
   float t = (microsek - startTime) / 1000000.0;
-  
-  //ArcTan Approx.
-  /*float progress = atan((PI * t * tmul) - (PI * 0.5)) * 0.5 + 0.5;
-  if (progress >= 1.0) {
-    progress = 1.0; 
-    state = 1;
-  }*/
-  
-  //Cosin Approx.
-  float progress = -cos(t * tmul * PI) * 0.5 + 0.5;
-  if ((t * tmul) >= 1.0) {
-    progress = 1.0; 
-    state = 1;
+  float progress;
+  switch (SPEED_PROFILE){
+    // FLAT SPEED CURVE
+    case 0:
+      progress = t * tmul;
+      if (progress >= 1.0){
+        progress = 1.0;
+        state = 1;
+      }
+      break;
+    // ARCTAN APPROX
+    case 1:
+      progress = atan((PI * t * tmul) - (PI * 0.5)) * 0.5 + 0.5;
+      if (progress >= 1.0) {
+        progress = 1.0; 
+        state = 1;
+      }
+      break;
+    // COSIN APPROX
+    case 2:
+      progress = -cos(t * tmul * PI) * 0.5 + 0.5;
+      if ((t * tmul) >= 1.0) {
+        progress = 1.0; 
+        state = 1;
+      }
+      break;
   }
-  
+
   xPosmm = xStartmm + progress * xDelta;
   yPosmm = yStartmm + progress * yDelta;
   zPosmm = zStartmm + progress * zDelta;
   ePosmm = eStartmm + progress * eDelta;
 
+  //Serial.print("xPosmm:");
+  //Serial.print(xPosmm);
+  //Serial.print(" yPosmm:");
+  //Serial.print(yPosmm);
+  //Serial.print(" zPosmm:");
+  //Serial.println(zPosmm);
 }
+
 
 bool Interpolation::isFinished() const {
   return state != 0; 

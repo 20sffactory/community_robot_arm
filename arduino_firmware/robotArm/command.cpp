@@ -81,6 +81,7 @@ void Command::value_segment(String msg_segment){
   }
 }
 
+
 Cmd Command::getCmd() const {
   return new_command; 
 }
@@ -96,7 +97,9 @@ void Command::cmdGetPosition(Point pos){
   Serial.print(" Y");
   Serial.print(pos.ymm);
   Serial.print(" Z");
-  Serial.println(pos.zmm);
+  Serial.print(pos.zmm);
+  Serial.print(" E");
+  Serial.println(pos.emm);
 }
 
 void Command::cmdToRelative(){
@@ -113,17 +116,21 @@ void cmdMove(Cmd(&cmd), Point pos, bool isRelativeCoord){
   if(isRelativeCoord == true){
     if (isnan(cmd.valueX)){cmd.valueX=0;}
     if (isnan(cmd.valueY)){cmd.valueY=0;}
-    if (isnan(cmd.valueZ)){cmd.valueZ=0;}    
+    if (isnan(cmd.valueZ)){cmd.valueZ=0;}
+    if (isnan(cmd.valueE)){cmd.valueE=0;}
     cmd.valueX += pos.xmm;
     cmd.valueY += pos.ymm;
     cmd.valueZ += pos.zmm;
+    cmd.valueE += pos.emm;
   }
   Serial.print("// Move to: X");
   Serial.print(cmd.valueX);
   Serial.print(" Y");
   Serial.print(cmd.valueY);
   Serial.print(" Z");
-  Serial.println(cmd.valueZ);
+  Serial.print(cmd.valueZ);
+  Serial.print(" E");
+  Serial.println(cmd.valueE);
 }
 
 void cmdDwell(Cmd(&cmd)){

@@ -1,4 +1,4 @@
-//20sffactory community_robot v0.11
+//20sffactory community_robot v0.21
 
 #include "config.h"
 #include "pinout.h"
@@ -19,6 +19,10 @@
 RampsStepper stepperHigher(X_STEP_PIN, X_DIR_PIN, X_ENABLE_PIN, INVERSE_X_STEPPER);
 RampsStepper stepperLower(Y_STEP_PIN, Y_DIR_PIN, Y_ENABLE_PIN, INVERSE_Y_STEPPER);
 RampsStepper stepperRotate(Z_STEP_PIN, Z_DIR_PIN, Z_ENABLE_PIN, INVERSE_Z_STEPPER);
+
+//RAIL OBJECTS
+RampsStepper stepperRail(E0_STEP_PIN, E0_DIR_PIN, E0_ENABLE_PIN, INVERSE_E0_STEPPER);
+Endstop endstopE0(E0_MIN_PIN, E0_DIR_PIN, E0_STEP_PIN, E0_ENABLE_PIN, E0_MIN_INPUT, E0_HOME_STEPS, HOME_DWELL);
 
 //ENDSTOP OBJECTS
 Endstop endstopX(X_MIN_PIN, X_DIR_PIN, X_STEP_PIN, X_ENABLE_PIN, X_MIN_INPUT, X_HOME_STEPS, HOME_DWELL);
@@ -44,6 +48,7 @@ void setup()
   stepperHigher.setPositionRad(PI / 2.0); // 90°
   stepperLower.setPositionRad(0);         // 0°
   stepperRotate.setPositionRad(0);        // 0°
+  stepperRail.setPosition(0);
   if (HOME_ON_BOOT) { //HOME DURING SETUP() IF HOME_ON_BOOT ENABLED
     homeSequence(); 
     Serial.println("Robot Online.");
@@ -62,7 +67,7 @@ void setup()
       Serial.println("Home robot manually and send G28 to calibrate.");
     }
   }
-  interpolator.setInterpolation(INITIAL_X, INITIAL_Y, INITIAL_Z, 0, INITIAL_X, INITIAL_Y, INITIAL_Z, 0);
+  interpolator.setInterpolation(INITIAL_X, INITIAL_Y, INITIAL_Z, INITIAL_E0, INITIAL_X, INITIAL_Y, INITIAL_Z, INITIAL_E0);
 }
 
 void loop() {
@@ -71,9 +76,15 @@ void loop() {
   stepperRotate.stepToPositionRad(geometry.getRotRad());
   stepperLower.stepToPositionRad(geometry.getLowRad());
   stepperHigher.stepToPositionRad(geometry.getHighRad());
+  if (RAIL){
+    stepperRail.stepToPositionMM(interpolator.getEPosmm(), STEPS_PER_MM_RAIL);
+  }
   stepperRotate.update();
   stepperLower.update();
   stepperHigher.update();
+  if (RAIL){
+    stepperRail.update();
+  }
   fan.update();
   if (!queue.isFull()) {
     if (command.handleGcode()) {
@@ -154,6 +165,9 @@ void setStepperEnable(bool enable){
   stepperRotate.enable(enable);
   stepperLower.enable(enable);
   stepperHigher.enable(enable);
+  if(RAIL){
+    stepperRail.enable(enable);
+  }
   fan.enable(enable);
 }
 
@@ -169,5 +183,10 @@ void homeSequence(){
   if (HOME_Z_STEPPER){
     endstopZ.home(INVERSE_Z_STEPPER); //INDICATE STEPPER HOMING DIRECDTION
   }
-  interpolator.setInterpolation(INITIAL_X, INITIAL_Y, INITIAL_Z, 0, INITIAL_X, INITIAL_Y, INITIAL_Z, 0);
+  if (RAIL){
+    if (HOME_E0_STEPPER){
+      endstopE0.home(!INVERSE_E0_STEPPER); //
+    }
+  }
+  interpolator.setInterpolation(INITIAL_X, INITIAL_Y, INITIAL_Z, INITIAL_E0, INITIAL_X, INITIAL_Y, INITIAL_Z, INITIAL_E0);
 }

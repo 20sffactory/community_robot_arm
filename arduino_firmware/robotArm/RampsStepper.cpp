@@ -38,6 +38,10 @@ void RampsStepper::stepToPosition(int value) {
   stepperStepTargetPosition = value;
 }
 
+void RampsStepper::stepToPositionMM(float mm, float steps_per_mm) {
+  stepperStepTargetPosition = mm * steps_per_mm;
+}
+
 void RampsStepper::stepRelative(int value) {
   value += stepperStepPosition;
   stepToPosition(value);

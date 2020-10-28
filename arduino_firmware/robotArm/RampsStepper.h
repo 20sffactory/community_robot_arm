@@ -10,8 +10,8 @@ public:
   int getPosition() const;
   void setPosition(int value);
   void stepToPosition(int value);
+  void stepToPositionMM(float mm, float steps_per_mm);
   void stepRelative(int value);
-  
   float getPositionRad() const;
   void setPositionRad(float rad);
   void stepToPositionRad(float rad);
