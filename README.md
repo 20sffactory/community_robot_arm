@@ -11,3 +11,4 @@
 [Robot Arm Background](https://www.20sffactory.com/robot/about)<br/>
 [BOM, Assembly, Wiring & Software User Guides](https://www.20sffactory.com/robot/resource)<br/>
 [Facebook Support Community](https://www.facebook.com/groups/robotarm)<br/>
+[Credits To Community Contributors](https://www.20sffactory.com/robot/credits)<br/>
