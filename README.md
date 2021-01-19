@@ -1,7 +1,13 @@
 # community_robot_arm 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
 
-* arduino_firmware contains Arduino Firmware Version v0.21 (28OCT2020)
+* arduino_firmware Version V0.31 (19JAN2021)
+  Changes:
+  - G92 Current Position Setting Option
+  - M114 Endstop State Reporting
+  - Limit Checking Move Overflow Prevention
+  - Logger Functions
+* Arduino Firmware Version V0.21 (28OCT2020)
   Changes:
   - Speed Curve Configuration Choices: Flat, Arctan, Cosin
   - E Axis (Rail) Option enabled
