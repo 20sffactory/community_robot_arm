@@ -3,7 +3,7 @@
 
 class RobotGeometry {
 public:
-  RobotGeometry(float a_ee_offset, float a_shank_length);
+  RobotGeometry(float a_ee_offset, float a_low_shank_length, float a_high_length);
   void set(float axmm, float aymm, float azmm);
   float getXmm() const;
   float getYmm() const;
@@ -14,7 +14,8 @@ public:
 private:
   void calculateGrad();
   float ee_offset;
-  float shank_length;
+  float low_shank_length;
+  float high_shank_length;
   float xmm;
   float ymm;
   float zmm;
