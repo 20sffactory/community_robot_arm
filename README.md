@@ -1,6 +1,8 @@
 # community_robot_arm 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
 
+* arduino_firmware Version V0.41 (24Feb2021)
+  - Different Lengths of Upper & Lower Shank Supported
 * arduino_firmware Version V0.31 (19JAN2021)
   Changes:
   - G92 Current Position Setting Option
