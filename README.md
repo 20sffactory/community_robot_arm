@@ -1,6 +1,8 @@
 # community_robot_arm 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
 
+* arduino_firmware Version V0.61 (03May2021)
+  - Arduino Uno Controller Option
 * arduino_firmware Version V0.51 (03Apr2021)
   - Servo Gripper Option
 * arduino_firmware Version V0.41 (24Feb2021)
