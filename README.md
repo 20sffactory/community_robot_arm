@@ -3,6 +3,7 @@
 
 * arduino_firmware Version V0.61 (03May2021)
   - Arduino Uno Controller Option
+  - Fixed Issue of G28 Homing for Original Ftobler without endstop
 * arduino_firmware Version V0.51 (03Apr2021)
   - Servo Gripper Option
 * arduino_firmware Version V0.41 (24Feb2021)
