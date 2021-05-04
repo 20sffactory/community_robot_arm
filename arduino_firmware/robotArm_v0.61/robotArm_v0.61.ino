@@ -140,6 +140,7 @@ void executeCommand(Cmd cmd) {
     case 28: 
       if (USE_UNO){
         homeSequence_UNO();
+        break;
       } else {
         homeSequence();
         break;
