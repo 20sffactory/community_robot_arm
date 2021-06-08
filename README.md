@@ -1,6 +1,10 @@
 # community_robot_arm 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
 
+* arduino_firmware Version V0.62 (07Jun2021)
+  - Change position format in M114
+  - Fixed Issue of G28 Homing with endstop for to detect failure robot
+  - Change flow on homeSequence. Plus generality of different hardware
 * arduino_firmware Version V0.61 (03May2021)
   - Arduino Uno Controller Option
   - Fixed Issue of G28 Homing for Original Ftobler without endstop
