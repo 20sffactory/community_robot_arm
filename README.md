@@ -1,6 +1,9 @@
 # community_robot_arm 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
-
+* arduino_firmware Version V0.71 (13Jun2021)
+  - ESP32 (WEMOS D1R32) SUPPORT WITH PS4 JOYSTICK OPTIOON
+  - CUSTOM SPEED CURVE COMMAND
+  - UNO OPTION WITH RAIL
 * arduino_firmware Version V0.61 (03May2021)
   - Arduino Uno Controller Option
   - Fixed Issue of G28 Homing for Original Ftobler without endstop
