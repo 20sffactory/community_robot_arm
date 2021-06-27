@@ -219,16 +219,22 @@ Point Interpolation::getPosmm() const {
 }
 
 bool Interpolation::isAllowedPosition(float pos_tracker[4]) {
-  float squaredPositionModule = pos_tracker[X_AXIS]*pos_tracker[X_AXIS] + pos_tracker[Y_AXIS]*pos_tracker[Y_AXIS] + pos_tracker[Z_AXIS]*pos_tracker[Z_AXIS];
-  
-  if((squaredPositionModule <= R_MAX*R_MAX) 
-    && (squaredPositionModule >= R_MIN*R_MIN) 
-    && (pos_tracker[Z_AXIS]) >= Z_MIN 
-    && (pos_tracker[Z_AXIS]) <= Z_MAX
-    && (pos_tracker[E_AXIS]) <= RAIL_LENGTH) {
-    return true;
-  }   
-  //Logger::logDEBUG("squaredPositionModule: " + String(squaredPositionModule) + ", R_MIN^2: " + String(R_MIN*R_MIN) + ", R_MAX^2: " + String(R_MAX*R_MAX));
-  Logger::logERROR("LIMIT REACHED: [X:" + String(pos_tracker[X_AXIS]) + " Y:" + String(pos_tracker[Y_AXIS]) + " Z:" + String(pos_tracker[Z_AXIS]) + " E:" + String(pos_tracker[E_AXIS]) + "]");
-  return false;
+  float rrot_ee = hypot(pos_tracker[X_AXIS], pos_tracker[Y_AXIS]);
+  float rrot = rrot_ee - END_EFFECTOR_OFFSET; 
+  float rrot_x = rrot * (pos_tracker[Y_AXIS] / rrot_ee);
+  float rrot_y = rrot * (pos_tracker[X_AXIS] / rrot_ee);
+  float squaredPositionModule = sq(rrot_x) + sq(rrot_y) + sq(pos_tracker[Z_AXIS]);  
+
+      bool retVal = (
+          squaredPositionModule <= sq(R_MAX) 
+          && squaredPositionModule >= sq(R_MIN) 
+          && pos_tracker[Z_AXIS] >= Z_MIN  
+          && pos_tracker[Z_AXIS] <= Z_MAX   
+          && pos_tracker[E_AXIS] <= RAIL_LENGTH
+      );
+  if(!retVal) {
+    Logger::logERROR("LIMIT REACHED: [X:" + String(pos_tracker[X_AXIS]) + " Y:" + String(pos_tracker[Y_AXIS]) + " Z:" + String(pos_tracker[Z_AXIS]) + " E:" + String(pos_tracker[E_AXIS]) + "]");
+    //Logger::logDEBUG("LIMIT REACHED: [squaredPositionModule:" + String(squaredPositionModule) + " R_MAX^2:" + String(sq(R_MAX)) + " R_MIN^2:" + String(sq(R_MIN)) + " Z_MIN:" + String(Z_MIN) + " Z_MAX:" + String(Z_MAX) + " RAIL_LENGTH:" + String(RAIL_LENGTH) + "]");
+  }
+  return retVal;
 }

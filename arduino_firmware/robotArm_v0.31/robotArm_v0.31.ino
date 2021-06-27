@@ -10,7 +10,7 @@
 #include "robotGeometry.h"
 #include "interpolation.h"
 #include "fanControl.h"
-#include "rampsStepper.h"
+#include "RampsStepper.h"
 #include "queue.h"
 #include "command.h"
 #include "byj_gripper.h"
@@ -39,7 +39,7 @@ Equipment led(LED_PIN);
 FanControl fan(FAN_PIN, FAN_DELAY);
 
 //EXECUTION & COMMAND OBJECTS
-RobotGeometry geometry(END_EFFECTOR_OFFSET, SHANK_LENGTH);
+RobotGeometry geometry(END_EFFECTOR_OFFSET, LOW_SHANK_LENGTH, HIGH_SHANK_LENGTH);
 Interpolation interpolator;
 Queue<Cmd> queue(QUEUE_SIZE);
 Command command;
