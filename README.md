@@ -1,6 +1,6 @@
 # community_robot_arm 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
-* arduino_firmware Version V0.71 (07Aug2021)
+* arduino_firmware Version V0.81 (07Aug2021)
   - ESP32 (WEMOS D1R32) SUPPORT WITH WIIMOTE
   - ESP32 JOYSTICK ADJUSTABLE SPEED MULTIPLIER CONFIG
 * arduino_firmware Version V0.71 (13Jun2021)
