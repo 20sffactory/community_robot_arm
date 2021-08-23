@@ -433,6 +433,7 @@ void wiimote_controller_loop(){
   if (x_distance || y_distance || z_distance || e_distance){
     interpolator.speed_profile = 0;
     interpolator.setInterpolation(interpolator.getXPosmm()+x_distance, interpolator.getYPosmm()+y_distance, interpolator.getZPosmm()+z_distance, interpolator.getEPosmm()+e_distance, 5);
+    //SOLUTION FOR WIIMOTE Y<0.05 FREEZE ISSUE
     if (interpolator.getYPosmm() < 0.5) {
       interpolator.setInterpolation(interpolator.getXPosmm(), 0.5, interpolator.getZPosmm(), interpolator.getEPosmm(), 5);
     }
