@@ -33,7 +33,7 @@
 #define BYJ_PIN_2          -1
 #define BYJ_PIN_3          -1
 
-#define SERVO_PIN          23 //SHARE WITH Z_MIN_PIN
+#define SERVO_PIN          19 //SERVO_PIN FOR STATIONARY
 
 #define PUMP_PIN           -1
 #define LASER_PIN          -1
