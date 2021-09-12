@@ -1,0 +1,164 @@
+Jan19: Firmware G28 Homing Improvements by Tehseen Hasan (repo)
+
+Feb19: Robot Controlled by Octoprint with Steps by Leo Yeung
+
+Apr19:  Firmware M114 & G91 Functions by Stephen Remillard (repo)
+
+Apr19: Joystick Controls Demo by Stephen Remillard
+
+Jul19: Gripper Pressure Sensor by César Omar Aranda
+
+Aug19: NodeMCU Connectivity by Atul Yadav
+
+Sep19: Laser Cut Version by Jim Black
+
+Dec19: Cute Robot Eyes & Gripper Paperclip Hack by Nemi Rai
+
+Jan20: Robot Beer Opener by Gcodeprintr
+
+Feb20: Additional Wrist Axis & Gripper Sensor by Jurek Bohdanowicz
+
+May20: ROS Software Sharing by Sergio Inacio
+
+May20: Belt Gear on ftobler version Tutorial by Tehseen Hasan
+
+Jun20: Belt Drive & Full Design Revision with Guides by Leo Yeung (repo)
+
+Jul20: Robot Plotting on Tablet by Phuntsho Wangdi
+
+Jul20: Rail Implementation Demo by Februandi
+
+Jul20: Remix Build running on GRBL by Tiago Moreira
+
+Jul20: Gripper Design by Februandi
+
+Aug20: ‘config.h’ Parameters Consolidation by Leo Yeung (repo) 
+
+Aug20: Robot Simulation on Rviz by 野田耕大郎
+
+Aug20: Conveyor Belt Application by Trần Hậu Hiếu
+
+Sep20: Rail Implementation Demo by Muhamad Ikbal Wiguna
+
+Sep20: Robot Enclosure Design by Wouter van Schaik (repo)
+
+Sep20: Demo of Computer Vision by Tehseen Hasan
+
+Oct20: Firmware Rail E Axis Inclusion by Wouter van Schaik (repo)
+
+Oct20: Firmware Speed Curve Option with Guide by Leo Yeung (repo)
+
+Oct20: Rail E Axis Design with Cute Eyes ;-) by Leo Yeung (repo)
+
+Nov20: Robot as 3D Scanner by Gcodeprintr
+
+Nov20: Computer Vision Demo by Leo Yeung
+
+Nov20: Using YAT Software for Robot Controls by Tehseen Hasan (repo)
+
+Dec20: Lego Robot Operator Booth for fun by Leo Yeung
+
+Dec20: G2 & G3 Functionality by Leandro Loiacono
+
+Dec20: Using ‘Processing’ tool to Execute Robot Firmware by Huang Kai
+
+Jan21: Dual Manipulator Support & Shank Extension by Leo Yeung (repo)
+
+Jan21: G92 Function, Move Limit Checks by Leandro Loiacono (repo)
+
+Jan21: 28BYJ Driven by A4988 & Casing by Wouter van Schaik (repo)
+
+Jan21: Bot Driven by 32 Bit Arduino Due by Apiwat Sukjareoon
+
+Jan21: Robot Pen Plotting by Leandro Loiacono
+
+Jan21: Glow in the Dark Robot by Glenn Boullue
+
+Feb21: Robot Plotting Driven by Marlin by Daniel Formiga
+
+Feb21: Socket & Body (V2) Adjustable Belt Tension by Leo Yeung (repo)
+
+Feb21: ROS Dockerfile sharing (in progress) by Marco Strullato
+
+Feb21: 6 DOF Concept by Bryan Kelly
+
+Feb21: Marlin 2.0 Custom Integration by Leandro Loiacono (repo)
+
+Feb21: Marlin Guides & Parameters Calculator by Leo Yeung (repo)
+
+Feb21: Repeatability, Calliper, Loading Tests by Justin Hulbert
+
+Feb21: v0.41 Dual Shank Lengths by Leandro Loiacono (repo)
+
+Feb21: YAT Guide, V0.41 Guides by Leo Yeung (repo)
+
+Feb21: Blower Fan & Drivers Cooling Duct concept by Brian Lau
+
+Mar21: Dual Robots Pick-Drop Collaboration demo by Leo Yeung
+
+Mar21: ESP8266 Integration demo by Leandro Loiacono
+
+Mar21: Laser cutting with Marlin 2.0 demo by Leo Yeung
+
+Mar21: Drinks Distribution in Wedding by Februandi & Muhamad Ikbal Wiguna
+
+Mar21: Google Speech Recognition API demo by Leandro Loiacono
+
+Mar21: 3D Printing with Robot Arm Update by LH FabLab/3DJLed
+
+Mar21: GT2 Timing Belt Printed in TPU by Shravan Nanjunda
+
+Mar21: A4988 Gripper Firmware add-on by Wouter van Schaik
+
+Mar21: Aluminium Shanks & Gear Box Design by Alfred Abanto/Louie Henson
+
+Apr21: Firmware V0.51 with Servo Gripper Support by Leo Yeung (repo)
+
+Apr21: Additional Wrist Servo Actuator by Apiwat Sukjareoon
+
+Apr21: Using SKR 1.4 Turbo Controller Board by JChester Rayos
+
+Apr21: ESP32 Encoder Control demo with Codes by Riley Oblander
+
+Apr21: ESP32 Marlin demo by Ionel Ciobanuc
+
+May21: Uno CNC Controller Option with Guide by Leo Yeung (repo)
+
+May21: ESP32 PS4 Joystick Control demo & Payload Testing by Leo Yeung
+
+May21: Plotting & Laser demo in custom design by Hurtado Melendez Efren
+
+Jun21: Homing Timeout concept demo & summary by César Omar Aranda
+
+Jun21: Turbo Fan Robot Toolhead demo  by 官師
+
+Jun21: Firmware V0.71 ESP32 Support with Guides by Leo Yeung (repo)
+
+Jun21: Wii Remote Control demo by Leo Yeung 
+
+Jun21: Terminal / Web Control project sharing (in ES) by César Omar Aranda
+
+Jun21: Marlin2.0 Laser by Vectric Aspire by Hurtado Melendez Efren
+
+Jul21: Robot Image Rendering in Blender with tutorial by Leo Yeung
+
+Jul21: Jetson Nano Face Track Initial Test by Vasco Eguren
+
+Jul21: Nano-ESP32 pyserial Error findings by Vasco Eguren & Leo Yeung
+
+Aug21: Marble Machine automation & MCU case attachment by Brian Lau
+
+Aug21: Robot Conveyor Microbit Huskylens System by 최조영
+
+Aug21: Controller Enclosure Switch & Led mod by 최조영
+
+Aug21: Firmware V0.81 Wiimote & Speed Multiplier by Leo Yeung (repo)
+
+Aug21: Kinect Controlled Painting Robot by Alfred Albanto
+
+Aug21: Upper Shank V2 Fix by Leo Yeung (repo)
+
+Aug21: Wiimote Y Freeze & Servo Pin Error identified by Pattanapong (repo)
+
+Sep21: Custom Rail Module with MCU attached by Pattanapong
+
