@@ -1,6 +1,5 @@
 # community_robot_arm 
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/yh1NoQ2Z36A&t/0.jpg)](https://www.youtube.com/watch?v=yh1NoQ2Z36A&t)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/yh1NoQ2Z36A/0.jpg)](https://www.youtube.com/watch?v=yh1NoQ2Z36A)
 
 **REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
 * arduino_firmware Version V0.81 (07Aug2021)
