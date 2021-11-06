@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      table {
+        width: 80%; 
+        border-collapse: collapse;
+        border-color: #dedede;
+        margin-left: auto; 
+        margin-right: auto;
+      }
+      p {
+        text-align: center;
+        color: #333333;
+        margin-bottom: 0px;
+      }
+      tr {
+        height: 15px;
+      }
+      td {
+        width: 50%;
+        text-align: center;
+        height: 15px;
+      }
+      input[type=number] {
+        width: 70%;
+        font-family: "proxima-nova";
+        color: #4D4D4D;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+      input[type=text] {
+        width: 70%;
+        font-family: "proxima-nova";
+        color: #4D4D4D;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+      input[type=button] {
+        width: 50%;
+        text-align: center;
+        font-family: "proxima-nova";
+        color: #4D4D4D;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 17px;
+
+      }
+      
+    </style>
+</head>
+
+<script type="text/javascript">
+
+    function calculate_position(){
+
+      var steps_array = [document.getElementById("x_home_steps").value, document.getElementById("y_home_steps").value, document.getElementById("z_home_steps").value];
+      var ee_offset = document.getElementById("ee_offset").value;
+      var shank = document.getElementById("shank_val").value;
+      var upper_rad = steps_to_rad(steps_array[0]);
+      var lower_rad = steps_to_rad(steps_array[1]);
+      var rot_rad = steps_to_rad(steps_array[2]);
+      var rot_rad_acute = Math.PI / 2 - rot_rad;
+      
+      var lower_rad_hp = Math.sqrt((shank*shank)+(shank*shank)-(2*shank*shank*Math.cos(lower_rad)));
+      var lower_rad_b = (Math.PI-lower_rad)/2;
+      
+      var z = shank-(Math.cos(lower_rad_b)*lower_rad_hp);
+      z += Math.sin(upper_rad)*shank;
+      var y = 0 - (Math.sin(lower_rad_b)*lower_rad_hp);
+      y += (Math.cos(upper_rad)*shank);
+      var x;
+      y += parseInt(ee_offset);
+      x = Math.cos(rot_rad_acute)*(y);
+      y = Math.sin(rot_rad_acute)*(y);
+      
+      document.getElementById("marlin_low_shank").value = String(shank) + "L";
+      document.getElementById("marlin_high_shank").value = String(shank) + "L";
+      document.getElementById("marlin_ee_offset").value = ee_offset;
+      document.getElementById("x_at_endstop").value = x.toFixed(2);
+      document.getElementById("y_at_endstop").value = y.toFixed(2);
+      document.getElementById("z_at_endstop").value = z.toFixed(2);
+
+
+
+      var steps_per_unit = get_steps_per_unit();
+      var str_steps_per_unit = "{ " + String(steps_per_unit) + ", " + String(steps_per_unit) + ", " + String(steps_per_unit) + ", 500 }";
+      document.getElementById("steps_per_unit").value = str_steps_per_unit;
+    }
+
+    function get_gear_ratio(){
+      var gear_ratio = document.getElementById("main_gear_teeth").value / document.getElementById("motor_gear_teeth").value;
+      return gear_ratio;
+    }
+
+    function get_total_steps_per_revo(){
+      var total_steps_per_revo = document.getElementById("microstep").value * document.getElementById("steps_per_revo").value;
+      return total_steps_per_revo;
+    }
+
+    function steps_to_rad(steps){
+      var rad = Math.PI * 2 * (steps / get_total_steps_per_revo()) / get_gear_ratio();
+      return rad;
+    }
+
+    function get_steps_per_unit(){
+      var steps_per_unit = get_gear_ratio() * get_total_steps_per_revo() / 360;
+      return steps_per_unit;
+    }
+
+    function test(){
+      var steps_per_revo = document.getElementById("steps_per_revo").value;
+      document.getElementById("x_at_endstop").value = steps_per_revo;
+    }
+</script>
+
+<body>
+<form id="cal_form">
+<table id="table_form">
+<tbody>
+<tr>
+<td colspan="2"><p>20sffactory Firmware</p></td>
+</tr>
+<tr>
+<td colspan="2"><p>"config.h" Settings </p></td>
+</tr>
+<tr></tr>
+<tr>
+<td><p>SHANK_LENGTH</p></td>
+<td><input type="number" id="shank_val" name="shank_val"></td>
+</tr>
+<tr>
+<td><p>END_EFFECTOR_OFFSET</p></td>
+<td><input type="number" id="ee_offset" name="ee_offset"></td>
+</tr>
+<tr>
+<td><p>STEPS_PER_REVO</p></td>
+<td><input type="number" id="steps_per_revo" name="steps_per_revo"></td>
+</tr>
+<tr>
+<td><p>MICROSTEPS</p></td>
+<td><input type="number" id="microstep" name="microstep"></td>
+</tr>
+<tr>
+<td><p>MOTOR_GEAR_TEETH</p></td>
+<td><input type="number" id="motor_gear_teeth" name="motor_gear_teeth"></td>
+</tr>
+<tr>
+<td><p>MAIN_GEAR_TEETH</p></td>
+<td><input type="number" id="main_gear_teeth" name="main_gear_teeth"></td>
+</tr>
+<tr>
+<td><p>X_HOME_STEPS</p></td>
+<td><input type="number" id="x_home_steps" name="x_home_steps"></td>
+</tr>
+<tr>
+<td><p>Y_HOME_STEPS</p></td>
+<td><input type="number" id="y_home_steps" name="y_home_steps"></td>
+</tr>
+<tr>
+<td><p>Z_HOME_STEPS</p></td>
+<td><input type="number" id="z_home_steps" name="z_home_steps"></td>
+</tr>
+<tr></tr>
+<tr>
+<td colspan="2"><input type="button" id="calculate_button" value="Calculate" onclick="calculate_position()"></td>
+</tr>
+<tr></tr>
+<tr>
+<td colspan="2"><p>Marlin 2.0</p></td>
+</tr>
+<tr>
+<td colspan="2"><p>"Configuration.h" Settings</p></td>
+</tr>
+<tr></tr>
+<tr>
+  <td><p>ROBOT_ARM_2L</p></td>
+</tr>
+<tr>
+<td><p>_LOW_SHANK</p></td>
+<td><input type="text" id="marlin_low_shank" name="marlin_low_shank" disabled></td>
+</tr>
+<tr>
+<td><p>_HIGH_SHANK</p></td>
+<td><input type="text" id="marlin_high_shank" name="marlin_high_shank" disabled></td>
+</tr>
+<tr>
+<td><p>_EE_OFFSET</p></td>
+<td><input type="number" id="marlin_ee_offset" name="marlin_ee_offset" disabled></td>
+</tr>
+<tr>
+<td><p>_X_AT_ENDSTOP</p></td>
+<td><input type="number" id="x_at_endstop" name="x_at_endstop" disabled></td>
+</tr>
+<tr>
+<td><p>_Y_AT_ENDSTOP</p></td>
+<td><input type="number" id="y_at_endstop" name="y_at_endstop" disabled></td>
+</tr>
+<tr>
+<td><p>_Z_AT_ENDSTOP</p></td>
+<td><input type="number" id="z_at_endstop" name="z_at_endstop" disabled></td>
+</tr>
+<tr>
+  <td colspan="2"><p>DEFAULT_AXIS_STEPS_PER_UNIT</p></td>
+</tr>
+<tr>
+  <td colspan="2"><input type="text" id="steps_per_unit" name="steps_per_unit" disabled></td>
+</tr>
+
+</tbody>
+</table>
+</form>
+</body>
+</html>
