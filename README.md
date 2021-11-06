@@ -1,9 +1,9 @@
 # community_robot_arm 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/yh1NoQ2Z36A/0.jpg)](https://www.youtube.com/watch?v=yh1NoQ2Z36A)
 
-which is an open source collaboration project participated by learners, hobbyists, engineers & developers, forming an online community of botbuilders. It was developed based on the original design by [Florin Tobler](https://www.thingiverse.com/1718984)<br/> with multiple rounds of open hardware & software modification
+Community robot arm is an open source collaboration project participated by an online community of learners & developers. It was developed based on the original design by [Florin Tobler](https://www.thingiverse.com/1718984)<br/> with multiple rounds of open hardware & software modification.
 
-**REPOSITORY OF COMMUNITY ROBOT ARM by 20sffactory**
+**REPOSITORY OF COMMUNITY ROBOT ARM**
 * arduino_firmware Version V0.81 (07Aug2021)
   - ESP32 (WEMOS D1R32) SUPPORT WITH WIIMOTE
   - ESP32 JOYSTICK ADJUSTABLE SPEED MULTIPLIER CONFIG
@@ -31,4 +31,7 @@ which is an open source collaboration project participated by learners, hobbyist
 * CAD_files contains STL & STEP files
 
 [Facebook Support Community](https://www.facebook.com/groups/robotarm)<br/>
+
+Graphical contents and CAD files are licensed under CC BY 4.0 License. Community Firmware is licensed under GNU-3.0 License.
+Unless otherwise noted, all support community content is licensed under CC-BY-SA.
 
