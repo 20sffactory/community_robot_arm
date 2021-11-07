@@ -33,5 +33,4 @@ Community robot arm is an open source collaboration project participated by an o
 [Facebook Support Community](https://www.facebook.com/groups/robotarm)<br/>
 
 Graphical contents and CAD files are licensed under CC BY 4.0 License. Community Firmware is licensed under GNU-3.0 License.
-Unless otherwise noted, all support community content is licensed under CC-BY-SA.
 
