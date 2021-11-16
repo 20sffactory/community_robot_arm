@@ -3,7 +3,6 @@
 //MAINTAINER: LEOYEUNG@20SFFACTORY
 //CONTACT: yeung.kl.leo@gmail.com
 //FORUM: www.facebook.com/groups/robotarm
-//DOCUMENTATION: www.20sffactory.com/robot/resource
 
 //VERSION: V0.81
 
