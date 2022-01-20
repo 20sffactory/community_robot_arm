@@ -30,7 +30,9 @@ Community robot arm is an open source collaboration project participated by an o
   - E Axis (Rail) Option enabled
 * CAD_files contains STL & STEP files
 
-[Facebook Support Community](https://www.facebook.com/groups/robotarm)<br/>
+[Facebook Group](https://www.facebook.com/groups/robotarm)<br/>
+[Discord Group](https://discord.gg/W5GUR7eSru)<br/>
+
 
 Graphical contents and CAD files are licensed under CC BY 4.0 License. Community Firmware is licensed under GNU-3.0 License.
 
