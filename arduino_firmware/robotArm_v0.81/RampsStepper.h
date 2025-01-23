@@ -21,8 +21,8 @@ public:
   
   void setReductionRatio(float gearRatio, int stepsPerRev);
 private:
-  int stepperStepTargetPosition;
-  int stepperStepPosition;
+  long stepperStepTargetPosition;
+  long stepperStepPosition;
   int stepPin;
   int dirPin;
   int enablePin;  
